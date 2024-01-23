@@ -3,7 +3,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/public/images/restaurants')
+        cb(null, 'https://restroapp-backend-e25.onrender.com/public/images/restaurants')
       },
       filename: function (req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname));
