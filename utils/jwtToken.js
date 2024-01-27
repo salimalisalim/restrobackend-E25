@@ -9,6 +9,9 @@ exports.getToken = async (req, res) => {
         time: Date.now(),
     }
 
+    const cookieParams = { httpOnly: true, sameSite: "none", secure: true };
+
+
     const token = await jwt.sign(options, process.env.JWT_SECRET_KEY, { expiresIn: '30min' });
 
     if (!token) {
@@ -19,7 +22,7 @@ exports.getToken = async (req, res) => {
         });
     }
 
-    res.status(200).cookie("token", token).json({
+    res.status(200).cookie("token", token, cookieParams).json({
         success: true,
         message: "Logged in successfull",
         isAuthenticated: true,
