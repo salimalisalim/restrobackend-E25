@@ -66,3 +66,8 @@ exports.getRestaurants = async(req,res)=>{
     }
 
 }
+
+exports.getSampleData = async(req,res)=>{
+res.status(200).json({success:true, message:"Route is working"})
+    
+}
